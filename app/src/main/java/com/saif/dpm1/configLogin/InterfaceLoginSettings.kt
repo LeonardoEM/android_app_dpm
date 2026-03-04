@@ -75,7 +75,6 @@ fun TabbedScreen(
 @Composable
 fun generarMenuLogin() {
     val tabs = listOf("Desarrollo", "Pruebas", "Produccion")
-
     FullScreenContainer{
         TabbedScreen(tabs=tabs) {selectedIndex ->
             when(selectedIndex){

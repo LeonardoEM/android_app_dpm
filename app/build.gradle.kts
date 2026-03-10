@@ -37,33 +37,31 @@ android {
     buildFeatures {
         compose = true
     }
-    composeOptions {
-        kotlinCompilerExtensionVersion = "1.5.15" // ejemplo; usa la sugerida por tu BOM/AS
+
+    buildFeatures{
+        viewBinding= true
     }
 }
 
 dependencies {
-    implementation(libs.androidx.ui)
-    val composeBom = platform("androidx.compose:compose-bom:2024.12.01") // ejemplo
-    implementation(composeBom)
-    androidTestImplementation(composeBom)
-
-    implementation("androidx.compose.ui:ui")
-    implementation(libs.androidx.compose.material3)
-    implementation("androidx.compose.ui:ui-tooling-preview")
-    debugImplementation("androidx.compose.ui:ui-tooling")
-
-    implementation("androidx.activity:activity-compose:1.9.3")
-    implementation("androidx.lifecycle:lifecycle-runtime-compose:2.8.6")
-
+    // AndroidX & UI
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
+    implementation(libs.androidx.lifecycle.runtime.compose)
     implementation(libs.androidx.activity.compose)
+    
     implementation(platform(libs.androidx.compose.bom))
     implementation(libs.androidx.compose.ui)
     implementation(libs.androidx.compose.ui.graphics)
     implementation(libs.androidx.compose.ui.tooling.preview)
     implementation(libs.androidx.compose.material3)
+    
+    implementation(libs.retrofit)
+    implementation(libs.retrofit.converter.gson)
+    implementation("com.squareup.retrofit2:converter-kotlinx-serialization:3.0.0")
+
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.10.2")
+
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
